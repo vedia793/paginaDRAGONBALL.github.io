@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>son gohan</title>
+    <style>
+        body {
+            background-color: #5a6142f6;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #0f431f;
+        }
+        .content {
+            background-color: #31914e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #2aa7a3;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(52, 51, 51, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Son Gohan</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>Son Gohan es uno de los personajes centrales de la serie Dragon Ball y el hijo mayor de Gokū y Chi-Chi. A lo largo de la serie, Gohan pasa de ser un niño tímido a uno de los guerreros más poderosos del universo, con un fuerte sentido de justicia y un corazón bondadoso.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="son1.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">uno de los personajes mas relevantes</div>
+            </div>
+            <div>
+                <img src="son2.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">uno de los mas fuertes</div>
+            </div>
+            <div>
+                <img src="son3.jpeg" alt="Imagen 3" onclick="openModal(this)">
+                <div class="caption">tiene un fuerte evolucion</div>
+            </div>
+            <div>
+                <img src="son4.jpeg" alt="Imagen 4" onclick="openModal(this)">
+                <div class="caption">es muy querido por la comunidad</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+

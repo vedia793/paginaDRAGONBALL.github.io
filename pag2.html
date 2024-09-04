@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vegeta</title>
+    <style>
+        body {
+            background-color: #0b13a7f1;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #000000;
+        }
+        .content {
+            
+            background-color: #373737b6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #ffff00;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(49, 48, 48, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fafafa;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #6b6f6b;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>vegeta</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>Vegeta es uno de los personajes más importantes y populares de la serie Dragon Ball. Es el príncipe de la raza Saiyajin y uno de los guerreros más poderosos del universo. Aunque comienza como un antagonista, a lo largo de la serie se convierte en un aliado y uno de los personajes más complejos de la franquicia.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="veg1.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">Uno de los personajes mas queridos</div>
+            </div>
+            <div>
+                <img src="veg2.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">se llama vegeta.</div>
+            </div>
+            <div>
+                <img src="veg3.jpeg" alt="Imagen 3" onclick="openModal(this)">
+                <div class="caption">tiene una evolucion.</div>
+            </div>
+            <div>
+                <img src="veg4.jpeg" alt="Imagen 4" onclick="openModal(this)">
+                <div class="caption">se concidera uno de los personajes mas fuertes.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+    
